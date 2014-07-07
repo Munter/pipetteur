@@ -1,0 +1,33 @@
+{
+  "name": "pipetteur",
+  "version": "0.0.0",
+  "description": "A function to extract any colors from a string",
+  "main": "pipetteur.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Munter/pipetteur.git"
+  },
+  "keywords": [
+    "color",
+    "string",
+    "match",
+    "extract",
+    "names",
+    "hex",
+    "rbg",
+    "hsv",
+    "hsl"
+  ],
+  "author": "Peter Müller <munter@fumle.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Munter/pipetteur/issues"
+  },
+  "homepage": "https://github.com/Munter/pipetteur",
+  "dependencies": {
+    "css-color-names": "0.0.1"
+  }
+}
