@@ -4,7 +4,7 @@
   "description": "A function to extract any colors from a string",
   "main": "pipetteur.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -29,5 +29,9 @@
   "homepage": "https://github.com/Munter/pipetteur",
   "dependencies": {
     "css-color-names": "0.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.1",
+    "unexpected": "^3.2.3"
   }
 }

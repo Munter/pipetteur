@@ -1,18 +1,22 @@
 var colorNames = require('css-color-names');
 
-var hexRegExp = /\w#([0-9A-F]{2}){3}\w/i;
+var hexRegExp = /(?:^|\b)#(?:[0-9a-f]{6}|[0-9a-f]{3})(?:^|\b)/gi;
 var channelRegExp = /\s*(\.\d+|\d+(?:\.\d+)?)(%)?\s*/,
     alphaChannelRegExp = /\s*(\.\d+|\d+(?:\.\d+)?)\s*/,
     cssColorRegExp = new RegExp(
-                         '\\w(rgb|hsl|hsv)a?' +
+                         '\\b(rgb|hsl|hsv)a?' +
                          '\\(' +
                              channelRegExp.source + ',' +
                              channelRegExp.source + ',' +
                              channelRegExp.source +
                              '(?:,' + alphaChannelRegExp.source + ')?' +
-                         '\\)\\w', 'i');
+                         '\\)\\b', 'gi');
 
 var colorMatcher = function (str) {
+    if (typeof str !== 'string') {
+        throw new Error('pipeteur: Expected string input, got ' + typeof str);
+    }
+
     var matches = [],
         parts = str.split(' '),
         hexmatch,
@@ -40,7 +44,7 @@ var colorMatcher = function (str) {
     // });
 
     // Match hex colors
-    while (hexmatch = str.exec(hexRegExp)) {
+    while (hexmatch = hexRegExp.exec(str)) {
         matches.push({
             index: hexmatch.index,
             match: hexmatch[0]
@@ -48,7 +52,7 @@ var colorMatcher = function (str) {
     }
 
     // Match CSS colors
-    while (cssmatch = str.exec(cssColorRegExp)) {
+    while (cssmatch = cssColorRegExp.exec(str)) {
         matches.push({
             index: cssmatch.index,
             match: cssmatch[0]
@@ -58,6 +62,8 @@ var colorMatcher = function (str) {
     // Reset search indexes
     hexRegExp.lastIndex = 0;
     cssColorRegExp.lastIndex = 0;
+
+    return matches;
 };
 
 colorMatcher.regexp = {
