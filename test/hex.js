@@ -184,4 +184,21 @@ describe('Hex match', function () {
 
         done();
     });
+
+    it('should match multiple colors in the same string', function (done) {
+        var strings = [
+            '#000000 #ffffff',
+            '#123456 and #234567',
+            'First: #123, Second: #fff000',
+            'Unlikely combination: #123#321'
+        ];
+
+        expect(strings, 'to be an array whose items satisfy', function (str) {
+            var matches = pipetteur(str);
+
+            expect(matches, 'to have length', 2);
+        });
+
+        done();
+    });
 });
