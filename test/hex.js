@@ -109,6 +109,63 @@ describe('Hex match', function () {
         done();
     });
 
+    it('should match a set of valid 3-char hex substrings', function (done) {
+        var hexes = [
+            {
+                string: 'foo #000 bar',
+                hex: '#000',
+                index: 4
+            },
+            {
+                string: 'one, two, #FFF, three',
+                hex: '#FFF',
+                index: 10
+            },
+            {
+                string: 'hvid (#fff) er pænt',
+                hex: '#fff',
+                index: 6
+            },
+            {
+                string: '#123 are numbers',
+                hex: '#123',
+                index: 0
+            },
+            {
+                string: 'alphabet song: #abc',
+                hex: '#abc',
+                index: 15
+            },
+            {
+                string: '#alphab et #ABC gehijkl',
+                hex: '#ABC',
+                index: 11
+            },
+            {
+                string: 'background:#fed',
+                hex: '#fed',
+                index: 11
+            },
+            {
+                string: '$color=#FED',
+                hex: '#FED',
+                index: 7
+            }
+        ];
+
+        expect(hexes, 'to be an array whose items satisfy', function (obj) {
+            var matches = pipetteur(obj.string);
+
+            expect(matches, 'to be a non-empty array');
+            expect(matches, 'to have length', 1);
+            expect(matches[0], 'to have properties', ['index', 'match']);
+            expect(matches[0].index, 'to be', obj.index);
+            expect(matches[0].match, 'to be', obj.hex);
+        });
+
+        done();
+    });
+
     it('should not match non-hex strings', function (done) {
         var hexes = [
             '#',
