@@ -1,16 +1,16 @@
 var colorNames = require('css-color-names');
 
-var hexRegExp = /(?:^|\b)#(?:[0-9a-f]{6}|[0-9a-f]{3})(?:^|\b)/gi;
-var channelRegExp = /\s*(\.\d+|\d+(?:\.\d+)?)(%)?\s*/,
+var hexRegExp = /#(?:[0-9a-f]{6}|[0-9a-f]{3}(?![0-9a-f]))/gi;
+var channelRegExp = /\s*\.\d+|\d+(?:\.\d+)?%?\s*/,
     alphaChannelRegExp = /\s*(\.\d+|\d+(?:\.\d+)?)\s*/,
     cssColorRegExp = new RegExp(
-                         '\\b(rgb|hsl|hsv)a?' +
+                         '(?:rgb|hsl|hsv)a?' +
                          '\\(' +
                              channelRegExp.source + ',' +
                              channelRegExp.source + ',' +
                              channelRegExp.source +
                              '(?:,' + alphaChannelRegExp.source + ')?' +
-                         '\\)\\b', 'gi');
+                         '\\)', 'gi');
 
 var colorMatcher = function (str) {
     if (typeof str !== 'string') {
