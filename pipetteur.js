@@ -1,6 +1,6 @@
 var colorNames = require('css-color-names');
 
-var hexRegExp = /#(?:[0-9a-f]{6}|[0-9a-f]{3}(?![0-9a-f]))/gi;
+var hexRegExp = /#(?:[0-9a-f]{6}|[0-9a-f]{3})(?![0-9a-f])/gi;
 var channelRegExp = /\s*\.\d+|\d+(?:\.\d+)?%?\s*/,
     alphaChannelRegExp = /\s*(\.\d+|\d+(?:\.\d+)?)\s*/,
     cssColorRegExp = new RegExp(

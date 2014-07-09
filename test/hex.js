@@ -108,4 +108,23 @@ describe('Hex match', function () {
 
         done();
     });
+
+    it('should not match non-hex strings', function (done) {
+        var hexes = [
+            '#',
+            '#0',
+            '#00',
+            '#0000',
+            '#00000',
+            '#0000000'
+        ];
+
+        expect(hexes, 'to be an array whose items satisfy', function (hex) {
+            var matches = pipetteur(hex);
+
+            expect(matches, 'to be an empty array');
+        });
+
+        done();
+    });
 });
