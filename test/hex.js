@@ -19,9 +19,13 @@ describe('Hex match', function () {
 
             expect(matches, 'to be a non-empty array');
             expect(matches, 'to have length', 1);
-            expect(matches[0], 'to have properties', ['index', 'match']);
+            expect(matches[0], 'to have properties', ['line', 'column', 'index', 'match', 'color']);
+            expect(matches[0].line, 'to be', 1);
+            expect(matches[0].column, 'to be', 1);
             expect(matches[0].index, 'to be', 0);
             expect(matches[0].match, 'to be', hex);
+            expect(matches[0].color.isColor, 'to be', true);
+            expect(matches[0].color.hex(), 'to be', hex.toLowerCase());
         });
 
         done();
@@ -159,6 +163,8 @@ describe('Hex match', function () {
             expect(matches, 'to be a non-empty array');
             expect(matches, 'to have length', 1);
             expect(matches[0], 'to have properties', ['index', 'match']);
+            expect(matches[0].line, 'to be', 1);
+            expect(matches[0].column, 'to be', obj.index + 1);
             expect(matches[0].index, 'to be', obj.index);
             expect(matches[0].match, 'to be', obj.hex);
         });

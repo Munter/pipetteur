@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/Munter/pipetteur",
   "dependencies": {
-    "css-color-names": "0.0.1"
+    "onecolor": "^2.4.0",
+    "synesthesia": "^0.1.0"
   },
   "devDependencies": {
     "mocha": "^1.20.1",

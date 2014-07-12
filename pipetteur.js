@@ -1,74 +1,31 @@
-var colorNames = require('css-color-names');
+var synesthesia = require('synesthesia');
+var color = require('onecolor');
 
-var hexRegExp = /#(?:[0-9a-f]{6}|[0-9a-f]{3})(?![0-9a-f])/gi;
-var channelRegExp = /\s*\.\d+|\d+(?:\.\d+)?%?\s*/,
-    alphaChannelRegExp = /\s*(\.\d+|\d+(?:\.\d+)?)\s*/,
-    cssColorRegExp = new RegExp(
-                         '(?:rgb|hsl|hsv)a?' +
-                         '\\(' +
-                             channelRegExp.source + ',' +
-                             channelRegExp.source + ',' +
-                             channelRegExp.source +
-                             '(?:,' + alphaChannelRegExp.source + ')?' +
-                         '\\)', 'gi');
-
-var colorMatcher = function (str) {
+var pipetteur = function (str) {
     if (typeof str !== 'string') {
         throw new Error('pipeteur: Expected string input, got ' + typeof str);
     }
 
     var matches = [],
-        parts = str.split(' '),
-        hexmatch,
-        cssmatch;
+        match;
 
-    // Match named colors
-    parts.forEach(function (part, idx) {
-        if (part in colorNames) {
-            matches.push({
-                index: parts.slice(0, idx).join(' ').length,
-                match: part
-            });
-        }
-    });
+    // Match colors incrementally
+    while (match = synesthesia.all.exec(str)) {
+        var lines = str.slice(0, match.index).split('\n');
 
-    // Object.keys(colorNames).forEach(function (name) {
-    //     var idx = str.indexOf(name);
-
-    //     if (idx !== -1) {
-    //         matches.push({
-    //             index: idx,
-    //             match: name
-    //         });
-    //     }
-    // });
-
-    // Match hex colors
-    while (hexmatch = hexRegExp.exec(str)) {
         matches.push({
-            index: hexmatch.index,
-            match: hexmatch[0]
-        });
-    }
-
-    // Match CSS colors
-    while (cssmatch = cssColorRegExp.exec(str)) {
-        matches.push({
-            index: cssmatch.index,
-            match: cssmatch[0]
+            index: match.index,
+            line: lines.length,
+            column: lines[lines.length - 1].length + 1,
+            match: match[0],
+            color: color(match[0])
         });
     }
 
     // Reset search indexes
-    hexRegExp.lastIndex = 0;
-    cssColorRegExp.lastIndex = 0;
+    synesthesia.all.lastIndex = 0;
 
     return matches;
 };
 
-colorMatcher.regexp = {
-    hex: hexRegExp,
-    css: cssColorRegExp
-};
-
-module.exports = colorMatcher;
+module.exports = pipetteur;
