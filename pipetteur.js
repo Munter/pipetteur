@@ -3,7 +3,7 @@ var color = require('onecolor');
 
 var pipetteur = function (str) {
     if (typeof str !== 'string') {
-        throw new Error('pipeteur: Expected string input, got ' + typeof str);
+        throw new Error('pipetteur: Expected string input, got ' + typeof str);
     }
 
     var matches = [],
