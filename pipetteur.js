@@ -7,11 +7,12 @@ var pipetteur = function (str) {
     }
 
     var matches = [],
-        match;
+        match,
+        lines;
 
     // Match colors incrementally
-    while (match = synesthesia.all.exec(str)) {
-        var lines = str.slice(0, match.index).split('\n');
+    while ((match = synesthesia.all.exec(str)) !== null) {
+        lines = str.slice(0, match.index).split('\n');
 
         matches.push({
             index: match.index,
