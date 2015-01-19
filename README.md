@@ -1,9 +1,9 @@
 Pipetteur
 =========
-[![NPM version](https://badge.fury.io/js/pipetteur.png)](http://badge.fury.io/js/pipetteur)
-[![Build Status](https://travis-ci.org/Munter/pipetteur.png?branch=master)](https://travis-ci.org/Munter/pipetteur)
-[![Coverage Status](https://coveralls.io/repos/Munter/pipetteur/badge.png)](https://coveralls.io/r/Munter/pipetteur)
-[![Dependency Status](https://david-dm.org/Munter/pipetteur.png)](https://david-dm.org/Munter/pipetteur)
+[![NPM version](https://badge.fury.io/js/pipetteur.svg)](http://badge.fury.io/js/pipetteur)
+[![Build Status](https://travis-ci.org/Munter/pipetteur.svg?branch=master)](https://travis-ci.org/Munter/pipetteur)
+[![Coverage Status](https://coveralls.io/repos/Munter/pipetteur/badge.svg?style=flat)](https://coveralls.io/r/Munter/pipetteur)
+[![Dependency Status](https://david-dm.org/Munter/pipetteur.svg)](https://david-dm.org/Munter/pipetteur)
 
 A module to find all color syntax substrings in a string with their offsets and their color instance.
 It's an automated eyedropper tool for your text, css, html, svg etc.
