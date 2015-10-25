@@ -13,7 +13,7 @@ describe('Error handling', function () {
             function () { return; }
         ];
         expect(types, 'to be an array whose items satisfy', function (type) {
-            expect(pipetteur.bind(type), 'to throw');
+            expect(pipetteur.bind(null, type), 'to throw');
         });
 
         done();

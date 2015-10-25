@@ -17,15 +17,21 @@ describe('Hex match', function () {
         expect(hexes, 'to be an array whose items satisfy', function (hex) {
             var matches = pipetteur(hex);
 
-            expect(matches, 'to be a non-empty array');
-            expect(matches, 'to have length', 1);
-            expect(matches[0], 'to have properties', ['line', 'column', 'index', 'match', 'color']);
-            expect(matches[0].line, 'to be', 1);
-            expect(matches[0].column, 'to be', 1);
-            expect(matches[0].index, 'to be', 0);
-            expect(matches[0].match, 'to be', hex);
-            expect(matches[0].color.isColor, 'to be', true);
-            expect(matches[0].color.hex(), 'to be', hex.toLowerCase());
+            return expect(matches, 'to satisfy', [
+                {
+                    line: 1,
+                    column: 1,
+                    index: 0,
+                    match: hex,
+                    color: function (color) {
+                        expect(color, 'to satisfy', {
+                            isColor: true,
+                        });
+
+                        expect(color.hex(), 'to be', hex.toLowerCase());
+                    }
+                }
+            ]);
         });
 
         done();
@@ -46,11 +52,17 @@ describe('Hex match', function () {
         expect(hexes, 'to be an array whose items satisfy', function (hex) {
             var matches = pipetteur(hex);
 
-            expect(matches, 'to be a non-empty array');
-            expect(matches, 'to have length', 1);
-            expect(matches[0], 'to have properties', ['index', 'match']);
-            expect(matches[0].index, 'to be', 0);
-            expect(matches[0].match, 'to be', hex);
+            return expect(matches, 'to satisfy', [
+                {
+                    line: 1,
+                    column: 1,
+                    index: 0,
+                    match: hex,
+                    color: {
+                        isColor: true
+                    }
+                }
+            ]);
         });
 
         done();
@@ -103,11 +115,17 @@ describe('Hex match', function () {
         expect(hexes, 'to be an array whose items satisfy', function (obj) {
             var matches = pipetteur(obj.string);
 
-            expect(matches, 'to be a non-empty array');
-            expect(matches, 'to have length', 1);
-            expect(matches[0], 'to have properties', ['index', 'match']);
-            expect(matches[0].index, 'to be', obj.index);
-            expect(matches[0].match, 'to be', obj.hex);
+            return expect(matches, 'to satisfy', [
+                {
+                    line: 1,
+                    column: obj.index + 1,
+                    index: obj.index,
+                    match: obj.hex,
+                    color: {
+                        isColor: true
+                    }
+                }
+            ]);
         });
 
         done();
@@ -160,13 +178,17 @@ describe('Hex match', function () {
         expect(hexes, 'to be an array whose items satisfy', function (obj) {
             var matches = pipetteur(obj.string);
 
-            expect(matches, 'to be a non-empty array');
-            expect(matches, 'to have length', 1);
-            expect(matches[0], 'to have properties', ['index', 'match']);
-            expect(matches[0].line, 'to be', 1);
-            expect(matches[0].column, 'to be', obj.index + 1);
-            expect(matches[0].index, 'to be', obj.index);
-            expect(matches[0].match, 'to be', obj.hex);
+            return expect(matches, 'to satisfy', [
+                {
+                    line: 1,
+                    column: obj.index + 1,
+                    index: obj.index,
+                    match: obj.hex,
+                    color: {
+                        isColor: true
+                    }
+                }
+            ]);
         });
 
         done();
