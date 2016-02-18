@@ -40,6 +40,6 @@
     "jshint": "2.8.0",
     "mocha": "2.3.4",
     "mocha-lcov-reporter": "1.0.0",
-    "unexpected": "10.5.0"
+    "unexpected": "10.8.2"
   }
 }
