@@ -35,7 +35,7 @@
     "synesthesia": "1.0.0"
   },
   "devDependencies": {
-    "coveralls": "2.11.6",
+    "coveralls": "2.11.7",
     "istanbul": "0.4.1",
     "jshint": "2.8.0",
     "mocha": "2.3.4",
