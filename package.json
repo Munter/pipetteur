@@ -36,10 +36,10 @@
   },
   "devDependencies": {
     "coveralls": "2.11.8",
-    "istanbul": "0.4.1",
+    "istanbul": "0.4.2",
     "jshint": "2.9.1",
-    "mocha": "2.3.4",
-    "mocha-lcov-reporter": "1.0.0",
+    "mocha": "2.4.5",
+    "mocha-lcov-reporter": "1.2.0",
     "unexpected": "10.10.8"
   }
 }
