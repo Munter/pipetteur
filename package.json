@@ -1,6 +1,6 @@
 {
   "name": "pipetteur",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A function to extract any colors from a string",
   "main": "pipetteur.js",
   "scripts": {
