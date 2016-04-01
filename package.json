@@ -35,11 +35,11 @@
     "synesthesia": "1.0.0"
   },
   "devDependencies": {
-    "coveralls": "2.11.8",
+    "coveralls": "2.11.9",
     "istanbul": "0.4.2",
     "jshint": "2.9.1",
     "mocha": "2.4.5",
     "mocha-lcov-reporter": "1.2.0",
-    "unexpected": "10.10.8"
+    "unexpected": "10.11.1"
   }
 }
