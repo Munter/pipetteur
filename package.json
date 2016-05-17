@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/Munter/pipetteur",
   "dependencies": {
-    "onecolor": "3.0.1",
+    "onecolor": "3.0.3",
     "synesthesia": "1.0.1"
   },
   "devDependencies": {
