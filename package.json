@@ -31,15 +31,15 @@
   },
   "homepage": "https://github.com/Munter/pipetteur",
   "dependencies": {
-    "onecolor": "3.0.4",
-    "synesthesia": "1.0.1"
+    "onecolor": "^3.0.4",
+    "synesthesia": "^1.0.1"
   },
   "devDependencies": {
-    "coveralls": "2.11.9",
-    "istanbul": "0.4.3",
-    "jshint": "2.9.2",
-    "mocha": "2.5.3",
-    "mocha-lcov-reporter": "1.2.0",
-    "unexpected": "10.13.3"
+    "coveralls": "^2.11.9",
+    "istanbul": "^0.4.3",
+    "jshint": "^2.9.2",
+    "mocha": "^2.5.3",
+    "mocha-lcov-reporter": "^1.2.0",
+    "unexpected": "^10.13.3"
   }
 }
