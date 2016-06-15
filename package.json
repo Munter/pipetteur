@@ -38,7 +38,7 @@
     "coveralls": "2.11.9",
     "istanbul": "0.4.3",
     "jshint": "2.9.2",
-    "mocha": "2.4.5",
+    "mocha": "2.5.1",
     "mocha-lcov-reporter": "1.2.0",
     "unexpected": "10.13.2"
   }
