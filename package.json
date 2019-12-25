@@ -3,6 +3,7 @@
   "version": "2.0.3",
   "description": "A function to extract any colors from a string",
   "main": "pipetteur.js",
+  "types": "pipetteur.d.ts",
   "scripts": {
     "lint": "jshint .",
     "test": "npm run lint && mocha",
