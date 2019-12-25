@@ -4,20 +4,20 @@
 
 export = pipetteur;
 
-declare function pipetteur(str: string): Pipetteur.PipetteurType[];
-declare namespace Pipetteur {
-    export type PipetteurType = {
+declare function pipetteur(str: string): pipetteur.PipetteurReturnType[];
+declare namespace pipetteur {
+    export type PipetteurReturnType = {
         index: number;
         line: number;
         column: number;
         match: string;
-        color: OneColor;
+        color: OneColorType;
     };
 
-    export type OneColor = {
+    export type OneColorType = {
         _red: number;
         _green: number;
         _blue: number;
-        _alpha: number; 
+        _alpha: number;
     };
 }
